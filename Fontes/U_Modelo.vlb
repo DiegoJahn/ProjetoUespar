@@ -1,0 +1,10 @@
+﻿[Panel1]
+Coordinates=98,10,55,58
+
+[StatusBar1]
+Coordinates=10,10,78,58
+Visible=True
+
+[]
+Coordinates=171,1,91,36
+

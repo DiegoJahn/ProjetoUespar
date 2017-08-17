@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/08/02 21:17:14.000.907,=C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 21:19:19.000.501,C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Documentos\ProjetoUespar\Fontes\U_Modelo.dfm</Transaction>
+    <Transaction>2017/08/02 21:19:19.000.501,C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Documentos\ProjetoUespar\Fontes\U_Modelo.pas</Transaction>
+    <Transaction>2017/08/02 21:19:30.000.379,C:\Users\user\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Documentos\ProjetoUespar\Fontes\ProjetoUespar.dproj</Transaction>
+    <Transaction>2017/08/02 22:16:00.000.014,=C:\Documentos\ProjetoUespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:17:23.000.818,=C:\Documentos\ProjetoUespar\Fontes\Unit2.pas</Transaction>
+    <Transaction>2017/08/02 22:17:58.000.536,C:\Documentos\ProjetoUespar\Fontes\Unit2.pas=C:\Documentos\ProjetoUespar\Fontes\U_Estado.pas</Transaction>
+    <Transaction>2017/08/02 22:17:58.000.536,C:\Documentos\ProjetoUespar\Fontes\Unit2.dfm=C:\Documentos\ProjetoUespar\Fontes\U_Estado.dfm</Transaction>
+    <Transaction>2017/08/02 22:18:04.000.027,C:\Documentos\ProjetoUespar\Fontes\Unit1.pas=C:\Documentos\ProjetoUespar\Fontes\U_Cidade.pas</Transaction>
+    <Transaction>2017/08/02 22:18:04.000.027,C:\Documentos\ProjetoUespar\Fontes\Unit1.dfm=C:\Documentos\ProjetoUespar\Fontes\U_Cidade.dfm</Transaction>
+    <Transaction>2017/08/02 22:18:16.000.426,=C:\Documentos\ProjetoUespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:18:49.000.339,C:\Documentos\ProjetoUespar\Fontes\Unit1.pas=C:\Documentos\ProjetoUespar\Fontes\U_Cliente.pas</Transaction>
+    <Transaction>2017/08/02 22:18:49.000.339,C:\Documentos\ProjetoUespar\Fontes\Unit1.dfm=C:\Documentos\ProjetoUespar\Fontes\U_Cliente.dfm</Transaction>
+    <Transaction>2017/08/02 22:21:13.000.480,=C:\Documentos\ProjetoUespar\Fontes\Unit1.pas</Transaction>
+    <Transaction>2017/08/02 22:21:55.000.760,C:\Documentos\ProjetoUespar\Fontes\Unit1.dfm=C:\Documentos\ProjetoUespar\Fontes\U_Principal.dfm</Transaction>
+    <Transaction>2017/08/02 22:21:55.000.760,C:\Documentos\ProjetoUespar\Fontes\Unit1.pas=C:\Documentos\ProjetoUespar\Fontes\U_Principal.pas</Transaction>
+  </Transactions>
+</BorlandProject>
