@@ -208,13 +208,5 @@ object F_Modelo: TF_Modelo
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Panel2: TPanel
-      Left = 198
-      Top = 285
-      Width = 185
-      Height = 41
-      Caption = 'Panel2'
-      TabOrder = 0
-    end
   end
 end

@@ -18,6 +18,7 @@ type
     Spb_Editar: TSpeedButton;
     TabControl1: TTabControl;
     Label1: TLabel;
+    Panel2: TPanel;
     procedure Spb_NovoClick(Sender: TObject);
     procedure Spb_SalvarClick(Sender: TObject);
     procedure Spb_CancelarClick(Sender: TObject);
