@@ -13,10 +13,10 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TF_Principal, F_Principal);
   Application.CreateForm(TF_Modelo, F_Modelo);
   Application.CreateForm(TF_Estado, F_Estado);
   Application.CreateForm(TF_Cidade, F_Cidade);
   Application.CreateForm(TF_Cliente, F_Cliente);
-  Application.CreateForm(TF_Principal, F_Principal);
   Application.Run;
 end.

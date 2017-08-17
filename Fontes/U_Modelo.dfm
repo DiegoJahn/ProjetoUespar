@@ -195,6 +195,7 @@ object F_Modelo: TF_Modelo
       'Cadastro'
       'Consulta')
     TabIndex = 0
+    ExplicitTop = -167
     object Label1: TLabel
       Left = 384
       Top = 232
