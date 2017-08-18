@@ -1,0 +1,10 @@
+inherited F_Produtos: TF_Produtos
+  Caption = 'Produto'
+  ExplicitWidth = 784
+  ExplicitHeight = 586
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited TabControl1: TTabControl
+    ExplicitTop = 41
+  end
+end
