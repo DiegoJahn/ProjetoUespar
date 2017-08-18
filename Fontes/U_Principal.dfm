@@ -1895,6 +1895,14 @@ object F_Principal: TF_Principal
     ExplicitTop = 504
     ExplicitWidth = 0
   end
+  object Panel1: TPanel
+    Left = 472
+    Top = 256
+    Width = 185
+    Height = 41
+    Caption = 'dskhgfashl;k'
+    TabOrder = 1
+  end
   object MainMenu1: TMainMenu
     Left = 88
     Top = 248
