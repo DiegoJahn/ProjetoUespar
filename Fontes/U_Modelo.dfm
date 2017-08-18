@@ -184,38 +184,35 @@ object F_Modelo: TF_Modelo
         Width = 50
       end>
   end
-  object TabControl1: TTabControl
+  object PageControl1: TPageControl
     Left = 0
-    Top = 41
+    Top = 36
     Width = 768
-    Height = 487
-    Align = alClient
+    Height = 486
+    ActivePage = TabSheet1
     TabOrder = 2
-    Tabs.Strings = (
-      'Cadastro'
-      'Consulta')
-    TabIndex = 0
-    ExplicitTop = -167
-    object Label1: TLabel
-      Left = 384
-      Top = 232
-      Width = 79
-      Height = 16
-      Caption = 'Label1'
-      Font.Charset = OEM_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Terminal'
-      Font.Style = [fsBold]
-      ParentFont = False
+    object TabSheet1: TTabSheet
+      Caption = 'Cadastro'
     end
-    object Panel2: TPanel
-      Left = 198
-      Top = 285
-      Width = 185
-      Height = 41
-      Caption = 'Panel2'
-      TabOrder = 0
+    object TabSheet2: TTabSheet
+      Caption = 'Consulta'
+      ImageIndex = 1
+      object GroupBox1: TGroupBox
+        Left = 2
+        Top = 3
+        Width = 755
+        Height = 174
+        Caption = 'Filtro'
+        TabOrder = 0
+      end
+      object GroupBox2: TGroupBox
+        Left = 3
+        Top = 183
+        Width = 754
+        Height = 186
+        Caption = 'Resultado da Consulta'
+        TabOrder = 1
+      end
     end
   end
 end

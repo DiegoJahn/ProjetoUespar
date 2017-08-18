@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Modelo, Vcl.ComCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.StdCtrls;
 
 type
   TF_Cidade = class(TF_Modelo)
