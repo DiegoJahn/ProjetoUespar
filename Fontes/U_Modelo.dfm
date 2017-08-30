@@ -4,8 +4,8 @@ object F_Modelo: TF_Modelo
   Caption = 
     '                                                                ' +
     '                                                 Modelo'
-  ClientHeight = 547
-  ClientWidth = 768
+  ClientHeight = 473
+  ClientWidth = 712
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -45,10 +45,11 @@ object F_Modelo: TF_Modelo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 768
+    Width = 712
     Height = 41
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 768
     object Spb_Novo: TSpeedButton
       Left = 8
       Top = 8
@@ -171,8 +172,8 @@ object F_Modelo: TF_Modelo
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 528
-    Width = 768
+    Top = 454
+    Width = 712
     Height = 19
     Panels = <
       item
@@ -183,6 +184,8 @@ object F_Modelo: TF_Modelo
         Text = 'Projeto Uespar 1.0'
         Width = 50
       end>
+    ExplicitTop = 528
+    ExplicitWidth = 768
   end
   object PageControl1: TPageControl
     Left = 0
@@ -197,6 +200,10 @@ object F_Modelo: TF_Modelo
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox1: TGroupBox
         Left = 2
         Top = 3
