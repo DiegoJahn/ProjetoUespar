@@ -24,6 +24,7 @@ type
     Produtos2: TMenuItem;
     Image1: TImage;
     StatusBar1: TStatusBar;
+    Panel1: TPanel;
     procedure Estado1Click(Sender: TObject);
     procedure Cidade1Click(Sender: TObject);
     procedure Cliente1Click(Sender: TObject);
