@@ -3,7 +3,8 @@ unit U_Principal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.Imaging.jpeg,
   Vcl.ExtCtrls, Vcl.ComCtrls;
 
@@ -45,12 +46,12 @@ uses U_Cidade, U_Cliente, U_Estado, U_Modelo, U_Produtos;
 
 procedure TF_Principal.Cidade1Click(Sender: TObject);
 begin
-       F_Cidade.ShowModal;
+  F_Cidade.ShowModal;
 end;
 
 procedure TF_Principal.Cliente1Click(Sender: TObject);
 begin
-F_Cliente.ShowModal;
+  F_Cliente.ShowModal;
 end;
 
 procedure TF_Principal.Estado1Click(Sender: TObject);
@@ -60,7 +61,7 @@ end;
 
 procedure TF_Principal.Produtos2Click(Sender: TObject);
 begin
-F_Produtos.ShowModal;
+  F_Produtos.ShowModal;
 end;
 
 end.

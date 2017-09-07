@@ -108,11 +108,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Cidade.pas">
-            <Form>F_Estado</Form>
+            <Form>F_Cidade</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Estado.pas">
-            <Form>F_Cidade</Form>
+            <Form>F_Estado</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Cliente.pas">
@@ -126,6 +126,11 @@
         <DCCReference Include="U_Produtos.pas">
             <Form>F_Produtos</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="U_DM.pas">
+            <Form>DM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
