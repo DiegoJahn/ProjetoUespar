@@ -2,23 +2,22 @@ inherited F_Estado: TF_Estado
   Caption = 
     '                                                                ' +
     '                            Cadastro de Estado'
-  ExplicitWidth = 728
-  ExplicitHeight = 512
+  ClientHeight = 437
+  ClientWidth = 710
+  ExplicitWidth = 726
+  ExplicitHeight = 476
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    ExplicitWidth = 712
+    Width = 710
   end
   inherited StatusBar1: TStatusBar
-    ExplicitTop = 454
-    ExplicitWidth = 712
+    Top = 418
+    Width = 710
   end
   inherited PageControl1: TPageControl
+    ActivePage = TabSheet2
     inherited TabSheet1: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 760
-      ExplicitHeight = 458
       object Label1: TLabel
         Left = 16
         Top = 19
@@ -66,10 +65,81 @@ inherited F_Estado: TF_Estado
       end
     end
     inherited TabSheet2: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 760
-      ExplicitHeight = 458
+      inherited GroupBox1: TGroupBox
+        Width = 698
+        ExplicitWidth = 698
+        object Lb_Pesquisar: TLabel
+          Left = 16
+          Top = 21
+          Width = 50
+          Height = 13
+          Caption = 'Pesquisar:'
+        end
+        object Edt_Pesquisar: TEdit
+          Left = 16
+          Top = 48
+          Width = 673
+          Height = 21
+          TabOrder = 0
+          OnChange = Edt_PesquisarChange
+        end
+      end
+      inherited GroupBox2: TGroupBox
+        Width = 697
+        ExplicitWidth = 697
+        object DBG_Consulta: TDBGrid
+          Left = 8
+          Top = 16
+          Width = 681
+          Height = 166
+          DataSource = DS_Estado
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+        end
+      end
     end
+  end
+  object Q_Estado: TFDQuery
+    Active = True
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'select * from estado where Nome_Estado like :NomeEstado')
+    Left = 368
+    Top = 208
+    ParamData = <
+      item
+        Name = 'NOMEESTADO'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 50
+      end>
+    object Q_EstadoID_ESTADO: TIntegerField
+      FieldName = 'ID_ESTADO'
+      Origin = 'ID_ESTADO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_EstadoNOME_ESTADO: TStringField
+      FieldName = 'NOME_ESTADO'
+      Origin = 'NOME_ESTADO'
+      Required = True
+      Size = 50
+    end
+    object Q_EstadoSIGLA_ESTADO: TStringField
+      FieldName = 'SIGLA_ESTADO'
+      Origin = 'SIGLA_ESTADO'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object DS_Estado: TDataSource
+    DataSet = Q_Estado
+    Left = 456
+    Top = 208
   end
 end

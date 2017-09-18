@@ -49,7 +49,6 @@ object F_Modelo: TF_Modelo
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 768
     object Spb_Novo: TSpeedButton
       Left = 8
       Top = 8
@@ -151,7 +150,6 @@ object F_Modelo: TF_Modelo
       Width = 23
       Height = 22
       Hint = 'Editar'
-      Enabled = False
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -184,8 +182,6 @@ object F_Modelo: TF_Modelo
         Text = 'Projeto Uespar 1.0'
         Width = 50
       end>
-    ExplicitTop = 528
-    ExplicitWidth = 768
   end
   object PageControl1: TPageControl
     Left = 0
@@ -200,10 +196,6 @@ object F_Modelo: TF_Modelo
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox1: TGroupBox
         Left = 2
         Top = 3
