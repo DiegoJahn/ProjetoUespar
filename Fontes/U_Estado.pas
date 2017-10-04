@@ -33,6 +33,7 @@ type
     procedure Spb_ExcluirClick(Sender: TObject);
     procedure Spb_EditarClick(Sender: TObject);
     procedure Edt_PesquisarChange(Sender: TObject);
+    procedure DBG_ConsultaDblClick(Sender: TObject);
   private
     procedure LimpaCampos;
     procedure HabilitaCampos;
@@ -90,12 +91,21 @@ begin
   Edt_SiglaEstado.Enabled := False;
 end;
 
+procedure TF_Estado.DBG_ConsultaDblClick(Sender: TObject);
+begin
+  inherited;
+  Edt_IdEstado.Text := Q_EstadoID_ESTADO.AsString;
+  Edt_NomeEstado.Text := Q_EstadoNOME_ESTADO.AsString;
+  Edt_SiglaEstado.Text := Q_EstadoSIGLA_ESTADO.AsString;
+  PageControl1.TabIndex := 0;
+end;
+
 procedure TF_Estado.Edt_PesquisarChange(Sender: TObject);
 begin
   inherited;
-Q_Estado.Close;
-Q_Estado.ParamByName('NomeEstado').AsString := Edt_Pesquisar.Text+'%';
-Q_Estado.Open();
+  Q_Estado.Close;
+  Q_Estado.ParamByName('NomeEstado').AsString := Edt_Pesquisar.Text + '%';
+  Q_Estado.Open();
 end;
 
 procedure TF_Estado.HabilitaCampos;
@@ -106,8 +116,16 @@ begin
 end;
 
 procedure TF_Estado.Spb_NovoClick(Sender: TObject);
+var
+  MAX: integer;
 begin
   inherited;
+  DM.FDQ_Estado.Close;
+  DM.FDQ_Estado.Open();
+  MAX := DM.FDQ_EstadoMAX.AsInteger + 1;
+  Edt_IdEstado.Text:= IntToStr(MAX);
+
+  PageControl1.TabIndex := 0;
   HabilitaCampos;
   Edt_IdEstado.SetFocus;
   Crud := 'inserir';
@@ -116,10 +134,14 @@ end;
 procedure TF_Estado.Spb_SalvarClick(Sender: TObject);
 var
   SQL: string;
+  MAX: integer;
 begin
   inherited;
   if Crud = 'inserir' then
   begin
+    DM.FDQ_Estado.Close;
+    DM.FDQ_Estado.Open();
+    MAX := DM.FDQ_EstadoMAX.AsInteger + 1;
     SQL := 'insert into estado values (' + //
       Edt_IdEstado.Text + ',' + //
       QuotedStr(Edt_NomeEstado.Text) + ',' + //
