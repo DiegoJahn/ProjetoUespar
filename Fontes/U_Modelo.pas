@@ -10,7 +10,6 @@ uses
 type
   TF_Modelo = class(TForm)
     Panel1: TPanel;
-    StatusBar1: TStatusBar;
     Spb_Novo: TSpeedButton;
     Spb_Salvar: TSpeedButton;
     Spb_Cancelar: TSpeedButton;
@@ -46,22 +45,19 @@ begin
   Spb_Cancelar.Enabled := False;
   Spb_Excluir.Enabled := False;
   Spb_Editar.Enabled := False;
-  StatusBar1.Panels[0].Text := 'Registro Cancelado';
 end;
 
 procedure TF_Modelo.Spb_EditarClick(Sender: TObject);
 begin
-  StatusBar1.Panels[0].Text := 'Editando Registro Atual';
   Spb_Novo.Enabled := False;
   Spb_Salvar.Enabled := True;
-  Spb_Cancelar.Enabled := False;
+  Spb_Cancelar.Enabled := True;
   Spb_Excluir.Enabled := False;
   Spb_Editar.Enabled := False;
 end;
 
 procedure TF_Modelo.Spb_ExcluirClick(Sender: TObject);
 begin
-  StatusBar1.Panels[0].Text := 'Excluido Com Sucesso';
   Spb_Novo.Enabled := True;
   Spb_Salvar.Enabled := False;
   Spb_Cancelar.Enabled := False;
@@ -76,7 +72,6 @@ begin
   Spb_Novo.Enabled := False;
   Spb_Excluir.Enabled := False;
   Spb_Editar.Enabled := False;
-  StatusBar1.Panels[0].Text := 'Inserindo Registro';
 end;
 
 procedure TF_Modelo.Spb_SalvarClick(Sender: TObject);
@@ -86,7 +81,6 @@ begin
   Spb_Cancelar.Enabled := False;
   Spb_Excluir.Enabled := True;
   Spb_Editar.Enabled := True;
-  StatusBar1.Panels[0].Text := 'Registro Salvo Com Sucesso';
 end;
 
 end.

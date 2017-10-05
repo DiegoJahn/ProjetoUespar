@@ -98,6 +98,8 @@ begin
   Edt_NomeEstado.Text := Q_EstadoNOME_ESTADO.AsString;
   Edt_SiglaEstado.Text := Q_EstadoSIGLA_ESTADO.AsString;
   PageControl1.TabIndex := 0;
+  Spb_Excluir.Enabled := True;
+  Spb_Editar.Enabled := True;
 end;
 
 procedure TF_Estado.Edt_PesquisarChange(Sender: TObject);
@@ -145,11 +147,10 @@ begin
     SQL := 'insert into estado values (' + //
       Edt_IdEstado.Text + ',' + //
       QuotedStr(Edt_NomeEstado.Text) + ',' + //
-      QuotedStr(Edt_SiglaEstado.Text) + ')';
+      QuotedStr(Edt_SiglaEstado.Text) + ');';
   end
   else
   begin
-    HabilitaCampos;
     SQL := 'update estado set' + //
       ' Nome_Estado =' + QuotedStr(Edt_NomeEstado.Text) + //
       ', sigla_estado =' + QuotedStr(Edt_SiglaEstado.Text) + //

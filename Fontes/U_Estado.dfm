@@ -12,16 +12,8 @@ inherited F_Estado: TF_Estado
     Width = 710
     ExplicitWidth = 710
   end
-  inherited StatusBar1: TStatusBar
-    Top = 418
-    Width = 710
-    ExplicitTop = 418
-    ExplicitWidth = 710
-  end
   inherited PageControl1: TPageControl
-    ActivePage = TabSheet2
     inherited TabSheet1: TTabSheet
-      ExplicitLeft = 8
       object Label1: TLabel
         Left = 14
         Top = 3
@@ -69,13 +61,11 @@ inherited F_Estado: TF_Estado
       end
     end
     inherited TabSheet2: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 760
-      ExplicitHeight = 458
       inherited GroupBox1: TGroupBox
         Width = 698
+        Height = 94
         ExplicitWidth = 698
+        ExplicitHeight = 94
         object Lb_Pesquisar: TLabel
           Left = 16
           Top = 21
@@ -93,13 +83,17 @@ inherited F_Estado: TF_Estado
         end
       end
       inherited GroupBox2: TGroupBox
+        Top = 103
         Width = 697
+        Height = 266
+        ExplicitTop = 103
         ExplicitWidth = 697
+        ExplicitHeight = 266
         object DBG_Consulta: TDBGrid
           Left = 8
           Top = 16
           Width = 681
-          Height = 166
+          Height = 241
           DataSource = DS_Estado
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
@@ -135,8 +129,8 @@ inherited F_Estado: TF_Estado
     Connection = DM.FDConnection1
     SQL.Strings = (
       'select * from estado where Nome_Estado like :NomeEstado')
-    Left = 648
-    Top = 280
+    Left = 664
+    Top = 8
     ParamData = <
       item
         Name = 'NOMEESTADO'
@@ -166,7 +160,7 @@ inherited F_Estado: TF_Estado
   end
   object DS_Estado: TDataSource
     DataSet = Q_Estado
-    Left = 648
-    Top = 336
+    Left = 608
+    Top = 8
   end
 end

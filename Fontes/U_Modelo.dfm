@@ -4,7 +4,7 @@ object F_Modelo: TF_Modelo
   Caption = 
     '                                                                ' +
     '                                                 Modelo'
-  ClientHeight = 473
+  ClientHeight = 466
   ClientWidth = 712
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -150,6 +150,7 @@ object F_Modelo: TF_Modelo
       Width = 23
       Height = 22
       Hint = 'Editar'
+      Enabled = False
       Flat = True
       Glyph.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100
@@ -168,38 +169,19 @@ object F_Modelo: TF_Modelo
       OnClick = Spb_EditarClick
     end
   end
-  object StatusBar1: TStatusBar
-    Left = 0
-    Top = 454
-    Width = 712
-    Height = 19
-    Panels = <
-      item
-        Width = 200
-      end
-      item
-        Alignment = taCenter
-        Text = 'Projeto Uespar 1.0'
-        Width = 50
-      end>
-  end
   object PageControl1: TPageControl
     Left = 0
     Top = 36
     Width = 768
     Height = 486
     ActivePage = TabSheet1
-    TabOrder = 2
+    TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
     end
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox1: TGroupBox
         Left = 2
         Top = 3
