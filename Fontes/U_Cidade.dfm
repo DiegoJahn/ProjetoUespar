@@ -4,6 +4,7 @@ inherited F_Cidade: TF_Cidade
     '                     Cadastro de Cidade'
   ClientHeight = 394
   ClientWidth = 635
+  OnShow = FormShow
   ExplicitWidth = 651
   ExplicitHeight = 433
   PixelsPerInch = 96
@@ -19,8 +20,10 @@ inherited F_Cidade: TF_Cidade
     ExplicitWidth = 635
     ExplicitHeight = 365
     inherited TabSheet1: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
       ExplicitWidth = 627
-      ExplicitHeight = 323
+      ExplicitHeight = 337
       object Label1: TLabel
         Left = 17
         Top = 16
@@ -107,8 +110,10 @@ inherited F_Cidade: TF_Cidade
       end
     end
     inherited TabSheet2: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
       ExplicitWidth = 627
-      ExplicitHeight = 353
+      ExplicitHeight = 337
       inherited GroupBox1: TGroupBox
         Width = 622
         Height = 78
@@ -131,11 +136,12 @@ inherited F_Cidade: TF_Cidade
         ExplicitWidth = 622
         ExplicitHeight = 242
         object DBG_Consulta: TDBGrid
-          Left = 16
+          Left = 15
           Top = 24
           Width = 593
           Height = 201
           DataSource = DS
+          Options = [dgTitles, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -145,26 +151,32 @@ inherited F_Cidade: TF_Cidade
           OnDblClick = DBG_ConsultaDblClick
           Columns = <
             item
+              Alignment = taCenter
               Expanded = False
               FieldName = 'ID_CIDADE'
+              Title.Alignment = taCenter
               Title.Caption = 'ID'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'NOME_CIDADE'
+              Title.Alignment = taCenter
               Title.Caption = 'NOME'
+              Width = 200
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CEP_CIDADE'
+              Title.Alignment = taCenter
               Title.Caption = 'CEP'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'ID_ESTADO'
+              Title.Alignment = taCenter
               Title.Caption = 'ESTADO'
               Visible = True
             end>
@@ -217,8 +229,8 @@ inherited F_Cidade: TF_Cidade
   object Q_Estado: TFDQuery
     Connection = DM.FDConnection1
     SQL.Strings = (
-      'select Nome_Estado,ID_Estado from Estado order by Nome_Estado;')
-    Left = 492
+      'select * from Estado order by Nome_Estado;')
+    Left = 500
     Top = 9
     object Q_EstadoNOME_ESTADO: TStringField
       FieldName = 'NOME_ESTADO'
@@ -231,6 +243,13 @@ inherited F_Cidade: TF_Cidade
       Origin = 'ID_ESTADO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object Q_EstadoSIGLA_ESTADO: TStringField
+      FieldName = 'SIGLA_ESTADO'
+      Origin = 'SIGLA_ESTADO'
+      Required = True
+      FixedChar = True
+      Size = 2
     end
   end
 end

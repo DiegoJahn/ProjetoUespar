@@ -48,6 +48,7 @@ type
     procedure Spb_CancelarClick(Sender: TObject);
     procedure Spb_SalvarClick(Sender: TObject);
     procedure Spb_EditarClick(Sender: TObject);
+    procedure Spb_ExcluirClick(Sender: TObject);
   private
     procedure LimpaCampos;
     procedure LimpaCampo;
@@ -67,6 +68,9 @@ implementation
 uses U_DM;
 
 procedure TF_Cliente.DBGrid1DblClick(Sender: TObject);
+var
+  X1, Y1: integer;
+  X2, Y2: string;
 begin
   inherited;
   Edt_IDCliente.Text := Q_ClienteIDCLIENTE.AsString;
@@ -77,6 +81,28 @@ begin
   Edt_Telefone.Text := Q_ClienteTELEFONE.AsString;
   CB_IDCidade.Text := Q_ClienteID_CIDADE.AsString;
   PageControl1.TabIndex := 0;
+
+  X1 := 0;
+  DM.FDQ_Cidade.Close;
+  DM.FDQ_Cidade.Open();
+  Y1 := DM.FDQ_CidadeMAX.AsInteger;
+  Q_Cidade.Close;
+  Q_Cidade.Open();
+  Q_Cidade.First;
+  while X1 < Y1 do
+  begin
+    CB_IDCidade.Items.Add(Q_CidadeNOME_CIDADE.AsString);
+    Q_Cidade.Next;
+    X1 := X1 + 1;
+  end;
+
+  X2 := Q_ClienteID_CIDADE.AsString;
+  Q_Cidade.First;
+  repeat
+    Y2 := Q_CidadeID_CIDADE.AsString;
+    CB_IDCidade.Text := Q_CidadeNOME_CIDADE.AsString;
+    Q_Cidade.Next;
+  until X2 = Y2;
 
   Spb_Excluir.Enabled := True;
   Spb_Editar.Enabled := True;
@@ -101,6 +127,7 @@ end;
 procedure TF_Cliente.Spb_EditarClick(Sender: TObject);
 begin
   inherited;
+  Crud := 'Alterar';
   Edt_IDCliente.Enabled := True;
   Edt_NomeCliente.Enabled := True;
   Edt_DNCliente.Enabled := True;
@@ -108,6 +135,16 @@ begin
   Edt_RG.Enabled := True;
   Edt_Telefone.Enabled := True;
   CB_IDCidade.Enabled := True;
+end;
+
+procedure TF_Cliente.Spb_ExcluirClick(Sender: TObject);
+var
+  SQL: string;
+begin
+  inherited;
+  SQL := 'delete from Cliente where idCliente =' + Edt_IDCliente.Text;
+  DM.FDConnection1.ExecSQL(SQL);
+  DM.FDConnection1.CommitRetaining;
 end;
 
 procedure TF_Cliente.LimpaCampos;
@@ -119,6 +156,7 @@ begin
   Edt_RG.Text := EmptyStr;
   Edt_Telefone.Text := EmptyStr;
   CB_IDCidade.Text := EmptyStr;
+  CB_IDCidade.Items.Clear;
 end;
 
 procedure TF_Cliente.LimpaCampo;
@@ -134,10 +172,25 @@ end;
 
 procedure TF_Cliente.Spb_NovoClick(Sender: TObject);
 var
-  X, Y, Max: integer;
+  X, Y, X1, Y1, Max: integer;
 begin
   inherited;
-  Crud := 'Inserir';
+  X1 := 0;
+  DM.FDQ_Cidade.Close;
+  DM.FDQ_Cidade.Open();
+  Y1 := DM.FDQ_CidadeMAX.AsInteger;
+  Q_Cidade.Close;
+  Q_Cidade.Open();
+  Q_Cidade.First;
+  CB_IDCidade.Text := Q_CidadeNOME_CIDADE.AsString;
+  while X1 < Y1 do
+  begin
+    CB_IDCidade.Items.Add(Q_CidadeNOME_CIDADE.AsString);
+    Q_Cidade.Next;
+    X1 := X1 + 1;
+  end;
+
+  Crud := 'inserir';
   Edt_IDCliente.Enabled := True;
   Edt_NomeCliente.Enabled := True;
   Edt_DNCliente.Enabled := True;
@@ -149,23 +202,6 @@ begin
   PageControl1.TabIndex := 0;
   Edt_IDCliente.SetFocus;
 
-  X := 0;
-  DM.FDQ_Estado.Close;
-  DM.FDQ_Estado.Open();
-  Y := DM.FDQ_EstadoMAX.AsInteger;
-  Q_Cidade.Close;
-  Q_Cidade.Open();
-  Q_Cidade.First;
-  CB_IDCidade.Text := IntToStr((Q_CidadeID_CIDADE.AsInteger)) + '   ' +
-    (Q_CidadeNOME_CIDADE.AsString);
-  while X < Y do
-  begin
-    CB_IDCidade.Items.Add(IntToStr((Q_CidadeID_CIDADE.AsInteger)) + '   ' +
-      (Q_CidadeNOME_CIDADE.AsString));
-    Q_Cidade.Next;
-    X := X + 1;
-  end;
-
   DM.FDQ_Cliente.Close;
   DM.FDQ_Cliente.Open();
   Max := DM.FDQ_ClienteMAX.AsInteger + 1;
@@ -175,34 +211,57 @@ end;
 procedure TF_Cliente.Spb_SalvarClick(Sender: TObject);
 var
   SQL: string;
-  Max: integer;
-  Copia: string;
+  Max, Num: integer;
+  Copia, X1, Y1: string;
   convert: real;
 begin
   inherited;
-  LimpaCampo;
   if Crud = 'inserir' then
   begin
-    Copia := Copy(CB_IDCidade.Text, 1, 3);
-    convert := StrToFloat(Copia);
-    DM.FDQ_Cliente.Close;
-    DM.FDQ_Cliente.Open();
-    Max := DM.FDQ_ClienteMAX.AsInteger + 1;
-    SQL := 'insert into CLIENTE values (' + Edt_IDCliente.Text + ',' + //
-      QuotedStr(Edt_NomeCliente.Text) + ',' + QuotedStr(Edt_CPF.Text) + ',' + //
-      QuotedStr(Edt_RG.Text) + ',' + QuotedStr(Edt_Telefone.Text) + ',' + //
-      QuotedStr(Edt_DNCliente.Text) + ',' + FloatToStr(convert) + ');';
+    Y1 := CB_IDCidade.Text;
+    if X1 <> Y1 then
+    begin
+      Q_Cidade.Close;
+      Q_Cidade.Open();
+      Q_Cidade.First;
+      repeat
+        X1 := Q_CidadeNOME_CIDADE.AsString;
+        Num := Q_CidadeID_CIDADE.AsInteger;
+        Q_Cidade.Next;
+      until X1 = Y1;
+    end;
+    SQL := 'insert into Cliente values (' + //
+      Edt_IDCliente.Text + //
+      ',' + QuotedStr(Edt_NomeCliente.Text) + //
+      ',' + QuotedStr(Edt_CPF.Text) + //
+      ',' + QuotedStr(Edt_RG.Text) + //
+      ',' + QuotedStr(Edt_Telefone.Text) + //
+      ',' + QuotedStr(Edt_DNCliente.Text) + //
+      ',' + IntToStr(Num) + ');';
   end
   else
   begin
-    SQL := 'update CLIENTE set' + //
-      ' NOMECLIENTE =' + QuotedStr(Edt_NomeCliente.Text) + //
+    Y1 := CB_IDCidade.Text;
+    if X1 <> Y1 then
+    begin
+      Q_Cidade.Close;
+      Q_Cidade.Open();
+      Q_Cidade.First;
+      repeat
+        X1 := Q_CidadeNOME_CIDADE.AsString;
+        Num := Q_CidadeID_CIDADE.AsInteger;
+        Q_Cidade.Next;
+      until X1 = Y1;
+    end;
+
+    SQL := 'update Cliente set' + //
+      ' NomeCliente =' + QuotedStr(Edt_NomeCliente.Text) + //
       ', CPF =' + QuotedStr(Edt_CPF.Text) + //
       ', RG =' + QuotedStr(Edt_RG.Text) + //
-      ', TELEFONE =' + QuotedStr(Edt_Telefone.Text) + //
-      ', DTNASCIMENTO =' + QuotedStr(Edt_DNCliente.Text) + //
-      ', ID_CIDADE =' + FloatToStr(convert) + //
-      'where IDCLIENTE =' + FloatToStr(convert);
+      ', Telefone =' + QuotedStr(Edt_Telefone.Text) + //
+      ', DTNascimento =' + QuotedStr(Edt_DNCliente.Text) + //
+      ', ID_Cidade =' + IntToStr(Num) + //
+      'where IDCliente =' + Edt_IDCliente.Text;
   end;
 
   DM.FDConnection1.ExecSQL(SQL);

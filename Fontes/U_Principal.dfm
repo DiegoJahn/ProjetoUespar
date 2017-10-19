@@ -4,7 +4,7 @@ object F_Principal: TF_Principal
   Caption = 
     '                                                                ' +
     '                                        Menu Principal'
-  ClientHeight = 364
+  ClientHeight = 344
   ClientWidth = 645
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object F_Principal: TF_Principal
     Left = 0
     Top = 0
     Width = 645
-    Height = 345
+    Height = 325
     Align = alClient
     Picture.Data = {
       0A544A504547496D616765CBE70000FFD8FFE000104A46494600010100000100
@@ -1886,7 +1886,7 @@ object F_Principal: TF_Principal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 345
+    Top = 325
     Width = 645
     Height = 19
     Panels = <
@@ -1897,12 +1897,10 @@ object F_Principal: TF_Principal
         Text = 'Create by: Diego Daniel Jahn'
         Width = 50
       end>
-    ExplicitTop = 366
-    ExplicitWidth = 654
   end
   object MainMenu1: TMainMenu
-    Left = 88
-    Top = 248
+    Left = 24
+    Top = 24
     object as1: TMenuItem
       Bitmap.Data = {
         76010000424D7601000000000000760000002800000020000000100000000100

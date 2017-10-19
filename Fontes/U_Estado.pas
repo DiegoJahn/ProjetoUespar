@@ -125,7 +125,7 @@ begin
   DM.FDQ_Estado.Close;
   DM.FDQ_Estado.Open();
   MAX := DM.FDQ_EstadoMAX.AsInteger + 1;
-  Edt_IdEstado.Text:= IntToStr(MAX);
+  Edt_IdEstado.Text := IntToStr(MAX);
 
   PageControl1.TabIndex := 0;
   HabilitaCampos;

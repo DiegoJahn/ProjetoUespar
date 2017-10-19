@@ -9,7 +9,9 @@ uses
   Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  System.Rtti, System.Bindings.Outputs, Vcl.Bind.Editors, Data.Bind.EngExt,
+  Vcl.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TF_Cidade = class(TF_Modelo)
@@ -32,6 +34,7 @@ type
     Q_Estado: TFDQuery;
     Q_EstadoNOME_ESTADO: TStringField;
     Q_EstadoID_ESTADO: TIntegerField;
+    Q_EstadoSIGLA_ESTADO: TStringField;
     procedure Spb_NovoClick(Sender: TObject);
     procedure Edt_ConsultaChange(Sender: TObject);
     procedure Spb_SalvarClick(Sender: TObject);
@@ -39,6 +42,8 @@ type
     procedure DBG_ConsultaDblClick(Sender: TObject);
     procedure Spb_CancelarClick(Sender: TObject);
     procedure Spb_ExcluirClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
   private
     procedure LiberaCampos;
     procedure LimpaCampos;
@@ -114,7 +119,7 @@ begin
   DM.FDQ_Cidade.Close;
   DM.FDQ_Cidade.Open();
   MAX := DM.FDQ_CidadeMAX.AsInteger + 1;
-  Edt_IDCidade.Text:= IntToStr(MAX);
+  Edt_IDCidade.Text := IntToStr(MAX);
 end;
 
 procedure TF_Cidade.Spb_SalvarClick(Sender: TObject);
@@ -147,6 +152,12 @@ begin
   DesativaCampos;
 end;
 
+procedure TF_Cidade.ComboBox1Change(Sender: TObject);
+begin
+  inherited;
+ShowMessage(Q_EstadoID_ESTADO.AsString);
+end;
+
 procedure TF_Cidade.DBG_ConsultaDblClick(Sender: TObject);
 begin
   inherited;
@@ -165,6 +176,13 @@ begin
   Q_Cidade.Close;
   Q_Cidade.ParamByName('NomeCidade').AsString := Edt_Consulta.Text + '%';
   Q_Cidade.Open();
+end;
+
+procedure TF_Cidade.FormShow(Sender: TObject);
+begin
+  inherited;
+Q_Estado.Close;
+Q_Estado.Open();
 end;
 
 procedure TF_Cidade.LiberaCampos;

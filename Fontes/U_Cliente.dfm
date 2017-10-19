@@ -4,16 +4,22 @@ inherited F_Cliente: TF_Cliente
     '                                     Cadastro de Cliente'
   ClientHeight = 435
   ClientWidth = 765
+  ExplicitLeft = -17
   ExplicitWidth = 781
   ExplicitHeight = 474
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 765
+    ExplicitWidth = 765
   end
   inherited PageControl1: TPageControl
+    ActivePage = TabSheet2
     inherited TabSheet1: TTabSheet
-      ExplicitLeft = 0
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 760
+      ExplicitHeight = 458
       object ID_Cliente: TLabel
         Left = 4
         Top = 3
@@ -121,6 +127,10 @@ inherited F_Cliente: TF_Cliente
       end
     end
     inherited TabSheet2: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 760
+      ExplicitHeight = 458
       inherited GroupBox1: TGroupBox
         Height = 110
         ExplicitHeight = 110
@@ -146,11 +156,12 @@ inherited F_Cliente: TF_Cliente
         ExplicitTop = 119
         ExplicitHeight = 250
         object DBGrid1: TDBGrid
-          Left = 15
-          Top = 27
+          Left = 11
+          Top = 20
           Width = 729
           Height = 214
           DataSource = DS
+          Options = [dgTitles, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -160,42 +171,51 @@ inherited F_Cliente: TF_Cliente
           OnDblClick = DBGrid1DblClick
           Columns = <
             item
+              Alignment = taCenter
               Expanded = False
               FieldName = 'IDCLIENTE'
+              Title.Alignment = taCenter
               Title.Caption = 'ID'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'NOMECLIENTE'
+              Title.Alignment = taCenter
               Title.Caption = 'Nome Cliente'
+              Width = 250
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CPF'
+              Title.Alignment = taCenter
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'RG'
+              Title.Alignment = taCenter
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'TELEFONE'
+              Title.Alignment = taCenter
               Title.Caption = 'Telefone'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DTNASCIMENTO'
+              Title.Alignment = taCenter
               Title.Caption = 'Data de Nascimento'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'ID_CIDADE'
+              Title.Alignment = taCenter
               Title.Caption = 'ID Cidade'
               Visible = True
             end>

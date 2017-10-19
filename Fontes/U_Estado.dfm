@@ -13,7 +13,12 @@ inherited F_Estado: TF_Estado
     ExplicitWidth = 710
   end
   inherited PageControl1: TPageControl
+    ActivePage = TabSheet2
     inherited TabSheet1: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 760
+      ExplicitHeight = 458
       object Label1: TLabel
         Left = 14
         Top = 3
@@ -61,6 +66,10 @@ inherited F_Estado: TF_Estado
       end
     end
     inherited TabSheet2: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 760
+      ExplicitHeight = 458
       inherited GroupBox1: TGroupBox
         Width = 698
         Height = 94
@@ -95,6 +104,7 @@ inherited F_Estado: TF_Estado
           Width = 681
           Height = 241
           DataSource = DS_Estado
+          Options = [dgTitles, dgColumnResize, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -104,20 +114,25 @@ inherited F_Estado: TF_Estado
           OnDblClick = DBG_ConsultaDblClick
           Columns = <
             item
+              Alignment = taCenter
               Expanded = False
               FieldName = 'ID_ESTADO'
+              Title.Alignment = taCenter
               Title.Caption = 'ID'
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'NOME_ESTADO'
+              Title.Alignment = taCenter
               Title.Caption = 'NOME'
               Visible = True
             end
             item
+              Alignment = taCenter
               Expanded = False
               FieldName = 'SIGLA_ESTADO'
+              Title.Alignment = taCenter
               Title.Caption = 'UF'
               Visible = True
             end>
